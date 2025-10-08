@@ -1,0 +1,191 @@
+@page
+@model ActivityModel
+@{
+    ViewData["Title"] = "Mathematical Activities";
+}
+
+<!-- Header-->
+<header class="py-5">
+    <div class="container px-5 pb-5">
+        <div class="row gx-5 align-items-center">
+            <div class="col-xxl-12">
+                <div class="text-center">
+                    <h1 class="display-3 fw-bolder mb-5">
+                        <span class="text-gradient d-inline">Mathematical Activities</span>
+                    </h1>
+                    <p class="lead fw-light mb-4">Solve various mathematical problems with interactive calculators</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Problem 1: Rectangle Area and Perimeter -->
+<section class="py-5">
+    <div class="container px-5">
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-11 col-xl-9 col-xxl-8">
+                <div class="card shadow border-0 rounded-4 mb-5">
+                    <div class="card-body p-5">
+                        <h3 class="fw-bolder mb-4">
+                            <span class="text-gradient d-inline">Problem 1: Rectangle Area and Perimeter</span>
+                        </h3>
+                        <p class="text-muted mb-4">Calculate the area and perimeter of a rectangle</p>
+                        
+                        <form method="post" asp-page-handler="Rectangle">
+                            <div class="row gx-3">
+                                <div class="col-md-6 mb-3">
+                                    <label for="length" class="form-label">Length</label>
+                                    <input type="number" class="form-control" id="length" name="Length" step="0.01" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="width" class="form-label">Width</label>
+                                    <input type="number" class="form-control" id="width" name="Width" step="0.01" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Calculate</button>
+                        </form>
+                        
+                        @if (Model.RectangleResult != null)
+                        {
+                            <div class="mt-4 p-3 bg-light rounded">
+                                <h5>Results:</h5>
+                                <p><strong>Area:</strong> @Model.RectangleResult.Area</p>
+                                <p><strong>Perimeter:</strong> @Model.RectangleResult.Perimeter</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Problem 2: Average of Three Numbers -->
+<section class="bg-light py-5">
+    <div class="container px-5">
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-11 col-xl-9 col-xxl-8">
+                <div class="card shadow border-0 rounded-4 mb-5">
+                    <div class="card-body p-5">
+                        <h3 class="fw-bolder mb-4">
+                            <span class="text-gradient d-inline">Problem 2: Average of Three Numbers</span>
+                        </h3>
+                        <p class="text-muted mb-4">Calculate the average of three numbers</p>
+                        
+                        <form method="post" asp-page-handler="Average">
+                            <div class="row gx-3">
+                                <div class="col-md-4 mb-3">
+                                    <label for="num1" class="form-label">First Number</label>
+                                    <input type="number" class="form-control" id="num1" name="Num1" step="0.01" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="num2" class="form-label">Second Number</label>
+                                    <input type="number" class="form-control" id="num2" name="Num2" step="0.01" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="num3" class="form-label">Third Number</label>
+                                    <input type="number" class="form-control" id="num3" name="Num3" step="0.01" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Calculate Average</button>
+                        </form>
+                        
+                        @if (Model.AverageResult != null)
+                        {
+                            <div class="mt-4 p-3 bg-light rounded">
+                                <h5>Result:</h5>
+                                <p><strong>Average:</strong> @Model.AverageResult</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Problem 3: Student Grade Percentage -->
+<section class="py-5">
+    <div class="container px-5">
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-11 col-xl-9 col-xxl-8">
+                <div class="card shadow border-0 rounded-4 mb-5">
+                    <div class="card-body p-5">
+                        <h3 class="fw-bolder mb-4">
+                            <span class="text-gradient d-inline">Problem 3: Student Grade Percentage</span>
+                        </h3>
+                        <p class="text-muted mb-4">Calculate the percentage grade of a student</p>
+                        
+                        <form method="post" asp-page-handler="Grade">
+                            <div class="row gx-3">
+                                <div class="col-md-6 mb-3">
+                                    <label for="earned" class="form-label">Points Earned</label>
+                                    <input type="number" class="form-control" id="earned" name="Earned" step="0.01" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="maximum" class="form-label">Maximum Points</label>
+                                    <input type="number" class="form-control" id="maximum" name="Maximum" step="0.01" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Calculate Percentage</button>
+                        </form>
+                        
+                        @if (Model.GradeResult != null)
+                        {
+                            <div class="mt-4 p-3 bg-light rounded">
+                                <h5>Result:</h5>
+                                <p><strong>Percentage:</strong> @Model.GradeResult%</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Problem 4: Simple Interest Calculator -->
+<section class="bg-light py-5">
+    <div class="container px-5">
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-11 col-xl-9 col-xxl-8">
+                <div class="card shadow border-0 rounded-4 mb-5">
+                    <div class="card-body p-5">
+                        <h3 class="fw-bolder mb-4">
+                            <span class="text-gradient d-inline">Problem 4: Simple Interest Calculator</span>
+                        </h3>
+                        <p class="text-muted mb-4">Calculate simple interest on a principal amount</p>
+                        
+                        <form method="post" asp-page-handler="Interest">
+                            <div class="row gx-3">
+                                <div class="col-md-4 mb-3">
+                                    <label for="principal" class="form-label">Principal Amount</label>
+                                    <input type="number" class="form-control" id="principal" name="Principal" step="0.01" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="rate" class="form-label">Interest Rate (%)</label>
+                                    <input type="number" class="form-control" id="rate" name="Rate" step="0.01" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="time" class="form-label">Time (years)</label>
+                                    <input type="number" class="form-control" id="time" name="Time" step="0.01" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Calculate Interest</button>
+                        </form>
+                        
+                        @if (Model.InterestResult != null)
+                        {
+                            <div class="mt-4 p-3 bg-light rounded">
+                                <h5>Result:</h5>
+                                <p><strong>Simple Interest:</strong> @Model.InterestResult</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

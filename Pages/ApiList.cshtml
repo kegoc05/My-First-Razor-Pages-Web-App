@@ -1,0 +1,31 @@
+@page
+@model MyResumeSite.Pages.ApiListModel
+@{
+    ViewData["Title"] = "Todos API Data";
+}
+
+<div class="container mt-4">
+    <h1 class="mb-4">Todos from API</h1>
+    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>User ID</th>
+                <th>Title</th>
+                <th>Completed</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var todo in Model.Todos)
+            {
+                <tr>
+                    <td>@todo.Id</td>
+                    <td>@todo.UserId</td>
+                    <td>@todo.Title</td>
+                    <td>@(todo.Completed ? "Yes" : "No")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
